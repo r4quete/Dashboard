@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="Stylesheet" href="style.css">
+    <title>Monitoramento Logístico</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    
+    <h1>DashBoard</h1>
+
+<center><table >
+  <tr>
+    <th>ID</th>
+    <th> Transportadoras</th>
+    <th> indicadores de atraso</th>
+
+      
+  </tr>
+  <tr>
+    <td>301</td>
+    <td><center>RotaMax</center></td>
+    <td><center>4 dias</center></td>
+
+  </tr>
+  <tr>
+    <td>302</td>
+    <td><center>ViaCargo</center></td>
+    <td><center>Dentro do prazo</center></td>
+ 
+ 
+  </tr>
+   <tr>
+    <td>303</td>
+    <td><center>FlashLog</center></td>
+    <td><center>5 dias</center></td>
+ 
+ 
+  </tr>
+   <tr>
+    <td>304</td>
+    <td><center>RotaMax</center></td>
+    <td><center>Dentro do prazo</center></td>
+ 
+ 
+  </tr>
+   <tr>
+    <td>305</td>
+    <td><center>ViaCargo</center></td>
+    <td><center>4 dias</center></td>
+ 
+ 
+  </tr>
+   <tr>
+    <td>306</td>
+    <td><center>FlashLog</center></td>
+    <td><center>7 dias</center></td>
+ 
+ 
+  </tr>
+   <tr>
+    <td>307</td>
+    <td><center>RotaMax</center></td>
+    <td><center>3 dias</center></td>
+ 
+ 
+  </tr>
+   <tr>
+    <td>308</td>
+    <td><center>ViaCargo</center></td>
+    <td><center>1 dia</center></td>
+ 
+ 
+  </tr>
+   <tr>
+    <td>309</td>
+    <td><center>FlashLog</center></td>
+    <td><center>Dentro do prazo</center></td>
+ 
+ 
+  </tr>
+   <tr>
+    <td>310</td>
+    <td><center>ViaCargo</center></td>
+    <td><center>4 dias</center></td>
+ 
+ 
+  </tr>
+</table>
+</center>
+
+<br><br>
+
+  <div class="graficos">
+    <canvas id="ComparaçãoentreasTransportadoras"></canvas>
+    <canvas id="regiões"></canvas>
+  </div>
+      
+
+    <script>
+        const f = document.getElementById('ComparaçãoentreasTransportadoras');
+
+        new Chart(f, {
+            type: 'bar',
+            data: {
+                labels: ['RotaMax', 'FlashLog', 'ViaCargo'],
+                datasets: [{
+                    label:[''],
+                    data: [3.5, 7, 7],
+                    backgroundColor: [
+                    '#8A2BE2',
+                    '#EE82EE',
+                    '#00BFFF',
+                    
+
+                    ],
+                    borderColor: '0',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                plugins:  { legend:{
+                    display: false },
+            title: {
+                display: true,
+                text: 'Média dos dias de atraso de cada transportadora'
+            }
+        }
+    }
+});
+            scales: {
+                y: {
+                        beginAtZero: true
+                }
+            }
+
+   </script>
+   
+   <script>
+        const j = document.getElementById('regiões');
+
+        new Chart(j, {
+            type: 'pie',
+            data: {
+                labels: ['Sudeste', 'Sul', 'Centro-Oeste','Norte','Nordeste'],
+                datasets: [{
+                    label:'Entregas atrasadas por região',
+                    data: [2, 2, 1, 0, 2],
+                    backgroundColor: [
+                  '#1E90FF',
+                  '	#32CD32',
+                  '	#FFD700', 
+                  '#F5DEB3',
+                  '#FF0000' 
+
+
+                    ],
+                   
+                    borderColor: '0',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                plugins:{title: {
+                display: true,
+                text: 'Análise por região'
+            }},
+                
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+
+
+
+
+   </script>
+
+
+</body>
+</html>
